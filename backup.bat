@@ -24,7 +24,7 @@
 :: Copiando arquivos do usuario
 @robocopy C:\users\%user% "D:\backup\%nome%\user files" /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings"
 @echo d|xcopy "C:\users\%user%\AppData\Local\Google\Chrome\User Data\Default\Bookmarks" D:\backup\%nome%\Favoritos /i
-@echo d|xcopy C:\ D:\backup\%nome%\c_raiz /e /h /y /EXCLUDE:D:\Scripts\Excluded.txt
+@echo d|xcopy C:\ D:\backup\%nome%\c_raiz /e /y /EXCLUDE:D:\Scripts\Excluded.txt
 attrib -h -s D:\backup\%nome%\c_raiz
 
 :: Criando pastas e exportando registros
