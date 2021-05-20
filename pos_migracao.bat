@@ -1,7 +1,7 @@
-﻿@pushd "%~dp0"
-@title Projeto WorkPlace - Parte 2 v1.1
+@pushd "%~dp0"
+@title Projeto WorkPlace - Parte 2 v1.2
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 2 v1.1
+@echo  Projeto WorkPlace - Parte 2 v1.2
 @echo ------------------------------------------------------------------------------
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
@@ -15,6 +15,7 @@
 @echo ## ATENCAO - EXECUTAR APOS A INSTALACAO DA IMAGEM COM LOGIN ADMIN ##
 @cd \
 
+:: Dando permissão para escrita no C:\
 icacls "C:" /grant Everyone:M
 
 :: Altera TimeZone
@@ -34,6 +35,7 @@ icacls "C:" /grant Everyone:M
 
 @echo Instalando Chrome:
 @start /w c:\Temp\ChromeSetup.exe
+@taskkill /IM chrome.exe
 @echo.
 
 @echo Instalando notes
