@@ -1,7 +1,7 @@
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 1 v.1.1
+@title Projeto WorkPlace - Parte 1 v.1.2
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 1 v.1.1
+@echo  Projeto WorkPlace - Parte 1 v.1.2
 @echo ------------------------------------------------------------------------------
 @color b
 @echo .########.####.##.....##.####.########
@@ -24,7 +24,8 @@
 :: Copiando arquivos do usuario
 @robocopy C:\users\%user% "D:\backup\%nome%\user files" /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings"
 @echo d|xcopy "C:\users\%user%\AppData\Local\Google\Chrome\User Data\Default\Bookmarks" D:\backup\%nome%\Favoritos /i
-@echo d|xcopy C:\ D:\backup\%nome%\c_raiz /e /y /EXCLUDE:D:\Scripts\Excluded.txt
+::@echo d|xcopy C:\ D:\backup\%nome%\c_raiz /e /y /EXCLUDE:D:\Scripts\Excluded.txt
+@robocopy C:\ D:\backup\%nome%\c_raiz /e /eta /r:1 /w:1 /XD "Program Files (x86)" Windows "Program Files" Temp "Out-of-Box Drivers" Intel users Notes.old Notesold bginfo Perflogs ProgramData
 attrib -h -s D:\backup\%nome%\c_raiz
 
 :: Criando pastas e exportando registros
@@ -33,7 +34,7 @@ attrib -h -s D:\backup\%nome%\c_raiz
 @mkdir registro
 @cd D:\backup\%nome%\registro
 @echo --------------------------------------------------------------------------
-@echo  Impressoras e mapeamentos - Exportando chaves do registro
+@echo        Impressoras e mapeamentos - Exportando chaves do registro
 @echo ---------------------------------------------------------------------------
 @reg export "HKEY_CURRENT_USER\Network" mapeamento.reg /y
 @reg export "HKEY_CURRENT_USER\Printers" impressoras.reg /y
