@@ -1,7 +1,7 @@
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 2 v1.4
+@title Projeto WorkPlace - Parte 2 v1.5
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 2 v1.4
+@echo  Projeto WorkPlace - Parte 2 v1.5
 @echo ------------------------------------------------------------------------------
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
@@ -11,7 +11,7 @@
 @echo ....##.....##....##.##....##.....##...
 @echo ....##....####....###....####....##...
 @color b
-@echo. v1.1
+@echo. v1.5
 @echo ## ATENCAO - EXECUTAR APOS A INSTALACAO DA IMAGEM COM LOGIN ADMIN ##
 @cd \
 
@@ -29,13 +29,13 @@ icacls "C:" /grant Everyone:M
 @robocopy D:\Programas_Linde\ c:\Temp /r:1 /w:1 /e
 @echo.
 
-@echo Instalando Edge:
-@start /w c:\Temp\Edge\MicrosoftEdgeEnterpriseX64.msi
-@echo.
-
 @echo Instalando Chrome:
 @start /w c:\Temp\ChromeSetup.exe
 @taskkill /IM /f chrome.exe
+@echo.
+
+@echo Instalando Driver MaxxAudio:
+@start /w c:\Temp\MaxxAudio.exe
 @echo.
 
 @echo Instalando notes
