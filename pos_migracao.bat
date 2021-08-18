@@ -1,7 +1,7 @@
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 2 v1.5
+@title Projeto WorkPlace - Parte 2 v1.6
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 2 v1.5
+@echo  Projeto WorkPlace - Parte 2 v1.6
 @echo ------------------------------------------------------------------------------
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
@@ -35,7 +35,7 @@ icacls "C:" /grant Everyone:M
 @echo.
 
 @echo Instalando Driver MaxxAudio:
-@start /w c:\Temp\MaxxAudio.exe
+@start /w c:\Temp\MaxxAudio.exe /s
 @echo.
 
 @echo Instalando notes
