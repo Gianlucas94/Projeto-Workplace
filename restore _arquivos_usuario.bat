@@ -1,7 +1,7 @@
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 3 v1.5
+@title Projeto WorkPlace - Parte 3 v1.6
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 3 v1.5
+@echo  Projeto WorkPlace - Parte 3 v1.6
 @echo ------------------------------------------------------------------------------
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
@@ -30,12 +30,12 @@
 @echo Restaurando favoritos do Chrome
 @start Chrome
 @taskkill /f /im chrome.exe
-@xcopy  D:\backup\%nome%\Favoritos\bookmarks\Chrome "C:\users\%user%\AppData\Local\Google\Chrome\User Data\Default\" /e
+@xcopy  D:\backup\%nome%\Favoritos\Chrome\bookmarks "C:\users\%user%\AppData\Local\Google\Chrome\User Data\Default\" /e
 
 @echo Restaurando favoritos do Edge
 @start msedge
 @taskkill /f /im msedge.exe
-@xcopy  D:\backup\%nome%\Favoritos\bookmarks\Edge "C:\users\%user%\AppData\Local\Google\Chrome\User Data\Default\" /e
+@xcopy  D:\backup\%nome%\Favoritos\Edge\bookmarks "C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\Default\" /e
 
 :: Importando registros.
 @ d:
