@@ -1,7 +1,7 @@
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 1 v.1.5
+@title Projeto WorkPlace - Parte 1 v.1.6
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 1 v.1.5
+@echo  Projeto WorkPlace - Parte 1 v.1.6
 @echo ------------------------------------------------------------------------------
 @color b
 @echo .########.####.##.....##.####.########
@@ -26,7 +26,7 @@
 @echo d|xcopy "C:\users\%user%\AppData\Local\Google\Chrome\User Data\Default\Bookmarks" D:\backup\%nome%\Favoritos\Chrome /i
 @echo d|xcopy "C:\users\%user%\AppData\Local\Microsoft\Edge\User Data\Default\Bookmarks" D:\backup\%nome%\Favoritos\Edge /i
 ::@echo d|xcopy C:\ D:\backup\%nome%\c_raiz /e /y /EXCLUDE:D:\Scripts\Excluded.txt
-@robocopy C:\ D:\backup\%nome%\c_raiz /e /eta /r:1 /w:1 /XD "Program Files (x86)" Windows "Program Files" Temp "Out-of-Box Drivers" Intel users Notes.old Notesold bginfo Perflogs ProgramData "Documents and Settings" $Recycle.Bin dell Config.msi Drivers 
+@robocopy C:\ D:\backup\%nome%\c_raiz /e /eta /r:1 /w:1 /XD "Program Files (x86)" Windows "Program Files" Temp "Out-of-Box Drivers" Intel users Notes.old Notesold bginfo Perflogs ProgramData "Documents and Settings" $Recycle.Bin dell Config.msi Drivers Temp 
 attrib -h -s D:\backup\%nome%\c_raiz
 
 :: Criando pastas e exportando registros
