@@ -12,7 +12,7 @@
 <br>
 <img src="/img/download.png" alt="Download" witdh="16" height="32">
 <ol>
-<li>Extraia o arquivo .zip e execute a bat <strong>0 - preparar-hd.bat</strong> e insera a letra do seu HD Externo
+<li>Extraia o arquivo .zip e execute a bat <strong>0 - preparar-hd.bat</strong> e insera a letra do seu HD Externo. (Somente a letra)
 <br>
 </ol>
 <img src="/img/preprar.png" alt="Primeiro passo" witdh="400" height="300">
@@ -30,7 +30,7 @@
 
 </ul>
 <ol>
-<li>Especifique a letra do seu <strong>HD externo</strong>.
+<li>Especifique a letra do seu <strong>HD externo</strong>(Somente a letra).
 <li>Especifique o nome do usuario (não utilize espaços, utilize "_" no lugar.). Exemplo: <strong>"Gianlucas_Almeida"</strong>.
 <li>Especifique a chave <strong>Praxair</strong> do usuário.
 <li>Quando apresentar a mensagem de finalizado pode fechar a bat e inciar a baixa da <strong>imagem Linde</strong>.
@@ -46,7 +46,7 @@
 <br>
 </ul>
 <ol>
-<li>Especifique a letra do seu <strong>HD externo</strong>.
+<li>Especifique a letra do seu <strong>HD externo </strong>(Somente a letra).
 <li>Após a instalação do <strong>Lotus Notes</strong> pode fechar todas as bats.
 </ol>
 <br>
@@ -61,7 +61,7 @@
 <br>
 </ul>
 <ol>
-<li>Especifique a letra do seu <strong>HD externo</strong>.
+<li>Especifique a letra do seu <strong>HD externo</strong> (Somente a letra).
 <li>Especifique o nome do usuario. <strong>o mesmo que você informou na primeira bat.</strong>
 <li>Especifique a chave <strong>Linde</strong> do usuário.
 <li>Quando apresentar a mensagem de finalizado pode fechar a bat e configurar o Outlook e pedir ao usuário que valide.
