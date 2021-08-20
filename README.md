@@ -14,8 +14,8 @@
 <ol>
 <li>Extraia o arquivo .zip e execute a bat <strong>0 - preparar-hd.bat</strong> e insera a letra do seu HD Externo
 <br>
-<img src="/img/preprar.png" alt="Primeiro passo" witdh="400" height="300">
 </ol>
+<img src="/img/preprar.png" alt="Primeiro passo" witdh="400" height="300">
 </ul>
 <br>
 
