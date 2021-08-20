@@ -1,6 +1,5 @@
 <h1 align="center">Projeto WorkPlace</h1>
-<div style=text-align: center><img src="/img/tivit-logo.png" alt="TIVIT" witdh="200" height="100"/>
-</div>
+<img style="display: block; margin: 0 auto"; src="/img/tivit-logo.png" alt="TIVIT" witdh="200" height="100"/>
 
 <h2>Bats para automatizar o processo de migração.</h2>
 <br>
