@@ -1,7 +1,7 @@
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 1 v.1.6
+@title Projeto WorkPlace - Parte 1 v.1.7b
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 1 v.1.6
+@echo  Projeto WorkPlace - Parte 1 v.1.7b
 @echo ------------------------------------------------------------------------------
 @color b
 @echo .########.####.##.....##.####.########
