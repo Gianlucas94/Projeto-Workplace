@@ -34,7 +34,7 @@
 attrib -h -s %letra%:\backup\%nome%\c_raiz
 
 :: Criando pastas e exportando registros
-@ d:
+@ %letra%:
 @cd %letra%:\backup\%nome%
 @mkdir registro
 @cd %letra%:\backup\%nome%\registro
