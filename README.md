@@ -7,7 +7,7 @@
 <h3><strong>0 -  Preparando HD Externo</strong></h3>
 <ul>
 <li>Fazer download do último release em: <a href="https://github.com/Gianlucas94/Projeto-Workplace/releases" title= "último release">Últimos Releases </a>
-<img src="/img/download.png" alt="Download" witdh="96" height="96">
+<img src="/img/download.png" alt="Download" witdh="32" height="64">
 <ol>
 <li>Extraia o arquivo .zip e execute a bat <strong>0 - preparar-hd.bat</strong> e insera a letra do seu HD Externo
 </ol>
