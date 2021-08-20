@@ -23,8 +23,9 @@
 
 
 :: Verifica se há scripts e instaladores antigos
-@del "%letra%:\scripts"
-@del "%letra%:\Programas_Linde"
+@echo Atualizando scripts e instaladores
+@del "%letra%:\scripts" /s /q
+@del "%letra%:\Programas_Linde" /s /q
 
 :: Copiando instaladores para o HD Externo
 @robocopy \\brariofs01\transfer\Gian "%letra%:\" /r:1 /w:1 /e /eta
