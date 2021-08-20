@@ -14,32 +14,36 @@
 @echo ## ATENCAO - EXECUTAR COM O USUARIO LOGADO ##
 @cd \
 
-:: Questiona o nome do usuário
+:: Questiona o nome do usuário e letra do HD
+@set /p letra= Letra do HD Externo:
+@echo.
 @set /p nome= Nome do Usuario:
+@echo.
 @set /p user= Chave Linde:
+@echo.
 
 :: Retornando arquivos do usuário.
 @echo -----------------------------------------
 @echo     Backup - Retornando arquivos
 @echo -----------------------------------------
-@robocopy "D:\backup\%nome%\user files" "C:\users\%user%" /r:1 /w:1 /e /eta
+@robocopy "%letra%:\backup\%nome%\user files" "C:\users\%user%" /r:1 /w:1 /e /eta
 @ren c:\notes notesold
-@robocopy "D:\backup\%nome%\c_raiz" C:\ /r:1 /w:1 /e /eta
+@robocopy "%letra%:\backup\%nome%\c_raiz" C:\ /r:1 /w:1 /e /eta
 
 :: Retornando Favoritos
 @echo Restaurando favoritos do Chrome
 @start Chrome
 @taskkill /f /im chrome.exe
-@xcopy  D:\backup\%nome%\Favoritos\Chrome\bookmarks "C:\users\%user%\AppData\Local\Google\Chrome\User Data\Default\" /e
+@xcopy  %letra%:\backup\%nome%\Favoritos\Chrome\bookmarks "C:\users\%user%\AppData\Local\Google\Chrome\User Data\Default\" /e
 
 @echo Restaurando favoritos do Edge
 @start msedge
 @taskkill /f /im msedge.exe
-@xcopy  D:\backup\%nome%\Favoritos\Edge\bookmarks "C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\Default\" /e
+@xcopy  %letra%:\backup\%nome%\Favoritos\Edge\bookmarks "C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\Default\" /e
 
 :: Importando registros.
 @ d:
-@cd D:\backup\%nome%\registro
+@cd %letra%:\backup\%nome%\registro
 @echo --------------------------------------------------------------------------
 @echo  Impressoras e mapeamentos - Importando chaves do registro
 @echo ---------------------------------------------------------------------------

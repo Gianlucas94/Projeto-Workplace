@@ -15,6 +15,9 @@
 @echo ## ATENCAO - EXECUTAR APOS A INSTALACAO DA IMAGEM COM LOGIN ADMIN ##
 @cd \
 
+@set /p letra= Letra do HD Externo:
+@echo.
+
 :: Dando permissão para escrita no C:\
 icacls "C:" /grant Everyone:M
 
@@ -26,7 +29,7 @@ icacls "C:" /grant Everyone:M
 
 :: Instalando e restaurando programas.
 @echo  ---Instalando softwares--
-@robocopy D:\Programas_Linde\ c:\Temp /r:1 /w:1 /e
+@robocopy %letra%:\Programas_Linde\ c:\Temp /r:1 /w:1 /e
 @echo.
 
 @echo Instalando Chrome:

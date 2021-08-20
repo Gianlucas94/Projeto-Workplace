@@ -16,15 +16,15 @@
 @echo ## ATENCAO - EXECUTAR LOGADO NO DOMINIO PRAXAIR ##
 @echo ## ATENCAO - BAT PARA PREPARAR HD EXTERNO PARA USO DAS BATS DO PROJETO WORKPLACE ##
 @echo.
-@set /p letra_HD= Letra do HD Externo:
+@set /p letra= Letra do HD Externo:
 @echo ------------------------------------
 @echo  Backup - Copiando instaladores
 @echo ------------------------------------
 
 
 :: Verifica se há scripts e instaladores antigos
-@del "%letra_HD%:\scripts"
-@del "%letra_HD%:\Programas_Linde"
+@del "%letra%:\scripts"
+@del "%letra%:\Programas_Linde"
 
 :: Copiando instaladores para o HD Externo
-@robocopy \\brariofs01\transfer\Gian "%letra_HD%:\" /r:1 /w:1 /e /eta
+@robocopy \\brariofs01\transfer\Gian "%letra%:\" /r:1 /w:1 /e /eta
