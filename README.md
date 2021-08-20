@@ -66,3 +66,5 @@
 <li>Especifique a chave <strong>Linde</strong> do usuário.
 <li>Quando apresentar a mensagem de finalizado pode fechar a bat e configurar o Outlook e pedir ao usuário que valide.
 </ol>
+<br>
+<img src=https://img.shields.io/badge/-Batch-61DAFB?logo=Windows&logoColor=white&style=for-the-badge">
