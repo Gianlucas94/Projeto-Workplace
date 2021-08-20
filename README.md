@@ -66,4 +66,3 @@
 <li>Especifique a chave <strong>Linde</strong> do usuário.
 <li>Quando apresentar a mensagem de finalizado pode fechar a bat e configurar o Outlook e pedir ao usuário que valide.
 </ol>
-
