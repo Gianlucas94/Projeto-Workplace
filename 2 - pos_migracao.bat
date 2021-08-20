@@ -11,7 +11,6 @@
 @echo ....##.....##....##.##....##.....##...
 @echo ....##....####....###....####....##...
 @color b
-@echo. v1.5
 @echo ## ATENCAO - EXECUTAR APOS A INSTALACAO DA IMAGEM COM LOGIN ADMIN ##
 @cd \
 
