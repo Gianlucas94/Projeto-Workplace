@@ -13,7 +13,7 @@
 <ul>
 <li>Você tem que estar logado no perfil do usuário para a bat conseguir pegar os mapeamentos do usuário.
 <li>No seu HD externo abra a pasta scripts e execute a bat <strong>1 - backup.bat</strong>
-<ol>
-<li>Especifique a letra do seu HD externo:
 <br>
 <img src="/img/backup-1.png" alt="Primeiro passo">
+<ol>
+<li>Especifique a letra do seu HD externo:
