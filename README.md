@@ -1,5 +1,5 @@
 <h1 align="center">Projeto WorkPlace</h1>
-<img src="/img/tivit-logo.png>" alt="TIVIT" witdh="200" height="100">
+<img src="/img/tivit-logo.png" alt="TIVIT" witdh="200" height="100">
 
 <h2>Bats para automatizar o processo de migração.</h2>
 <br>
@@ -7,6 +7,7 @@
 <h3><strong>0 -  Preparando HD Externo</strong></h3>
 <ul>
 <li>Fazer download do último release em: <a href="https://github.com/Gianlucas94/Projeto-Workplace/releases" title= "último release">Últimos Releases </a>
+<img src="/img/download.png" alt="Download" witdh="96" height="96">
 <ol>
 <li>Extraia o arquivo .zip e execute a bat <strong>0 - preparar-hd.bat</strong> e insera a letra do seu HD Externo
 </ol>
