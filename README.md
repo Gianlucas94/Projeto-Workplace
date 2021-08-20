@@ -39,7 +39,7 @@
 <li><strong>Você tem que estar logado no perfil administrador para a bat conseguir instalar os softwares.</strong>
 <li>No seu HD externo abra a pasta scripts e execute a bat <strong>2 - pos_migracao.bat</strong>
 <br>
-<img src="/img/restore.png" alt="Primeiro passo" witdh="400" height="300">
+<img src="/img/pos_migracao-1.png" alt="Primeiro passo" witdh="400" height="300">
 <br>
 </ul>
 <ol>
@@ -54,7 +54,7 @@
 <li>No seu HD externo abra a pasta scripts e execute a bat <strong>3 - restore _arquivos_usuario.bat</strong>
 <br>
 
-<img src="/img/pos_migracao-1.png" alt="Primeiro passo" witdh="400" height="300">
+<img src="/img/restore.png" alt="Primeiro passo" witdh="400" height="300">
 <br>
 </ul>
 <ol>
