@@ -1,15 +1,19 @@
 <h1 align="center">Projeto WorkPlace</h1>
 <h2>Bats para automatizar o processo de migração.</h2>
 <br>
-<h3><strong>Preparando HD Externo</strong></h3>
+<h3><strong>0 -  Preparando HD Externo</strong></h3>
 <ul>
-<li>HD externo reconhecido como <strong>(D:\)</strong></li>
-<li>Pasta na raiz do HD externo <strong>(D:\)</strong> com o nome de "programa_linde"</li>
-<ul>
-<li>Nessa pasta tem que ter os instaladores do Lotus Notes, MaxxAudio e Google Chrome</li>
+<li>Fazer download do último release em: <a href="https://github.com/Gianlucas94/Projeto-Workplace/releases" title= "último release">Últimos Releases </a>
+<ol>
+<li>Extraia o arquivo .zip e execute a bat <strong>0 - preparar-hd.bat</strong> e insera a letra do seu HD Externo
+</ol>
 </ul>
-<li>Pasta na raiz do HD externo <strong>(D:\)</strong> com o nome de "scripts"</li>
+
+<h3><strong>1 - Fazendo Backup do Usuário</strong></h3>
 <ul>
-<li>Nessa pasta tem que ter todos os scripts deste GIT
-</ul>
-<li>
+<li>Você tem que estar logado no perfil do usuário para a bat conseguir pegar os mapeamentos do usuário.
+<li>No seu HD externo abra a pasta scripts e execute a bat <strong>1 - backup.bat</strong>
+<ol>
+<li>Especifique a letra do seu HD externo:
+<br>
+<img src="/img/backup-1.png" alt="Primeiro passo">
