@@ -28,4 +28,4 @@
 @del "%letra%:\Programas_Linde" /s /q
 
 :: Copiando instaladores para o HD Externo
-@robocopy \\brariofs01\transfer\Gian "%letra%:\" /r:1 /w:1 /e /eta
+@robocopy \\brariofs01\transfer\Gian %letra%:\ /r:1 /w:1 /e /eta
