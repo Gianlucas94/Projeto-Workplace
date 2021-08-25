@@ -3,8 +3,46 @@
 <img src="/img/tivit-logo.png" alt="TIVIT" witdh="200" height="100" style="display: block; margin: 0 auto"/>
 </p>
 
-<h2>Bats para automatizar o processo de migração.</h2>
+<h2 align="center"><strong>Características:</strong></h2>
 <br>
+
+<h3><strong>0 - preparar-hd.bat</strong></h3>
+<ul>
+<li>Prepara o HD para utilização das bats.
+<li>Copia os scripts e programas padrões para o HD externo do técnico.
+</ul>
+<br>
+
+<h3><strong>1 - backup.bat</strong></h3>
+<ul>
+<li>Copia as pastas do perfil do usuário. (Exceto AppData).
+<li>Copia todas as pastas do C:\ (Exceto pastas do sistema, por exemplo: Windows, Program Files).
+<li>Copia a pasta Notes.
+<li>Salva os mapeamentos.
+</ul>
+<br>
+
+<h3><strong>2 - pos_migracao.bat</strong></h3>
+<ul>
+<li>Instala o Google Chrome.
+<li>Instala o Notes.
+<li>Instala o MaxxAudio.
+</ul>
+<br>
+
+<h3><strong>3 - restore _arquivos_usuario.bat</strong></h3>
+<ul>
+<li>Restaura os arquivos do usuário.
+<li>Restaura  as pastas do C:\.
+<li>Restaura os mapeamentos.
+<li>Restaura a pasta Notes.
+
+
+</ul>
+<br>
+
+
+<h2 align="center"><strong>Utilização:</strong></h2>
 
 <h3><strong>0 -  Preparando HD Externo</strong></h3>
 <ul>
@@ -40,7 +78,8 @@
 <h3><strong>2 - Instalações e configurações pós baixa de imagem.</strong></h3>
 <ul>
 <li><strong>Você tem que estar logado no perfil administrador para a bat conseguir instalar os softwares e executar a bat como administrador.</strong>
-<li>No seu HD externo abra a pasta scripts e execute a bat <strong>2 - pos_migracao.bat</strong>
+<li>Crie uma pasta temp no C:\.
+<li>No seu HD externo copie o conteúdo da pasta scripts para a pasta temp e execute a bat <strong>2 - pos_migracao.bat</strong>
 <br>
 <img src="/img/pos_migracao-1.png" alt="Primeiro passo" witdh="400" height="300">
 <br>
@@ -54,9 +93,9 @@
 <h3><strong>3 - Retorno dos arquivos e configurações do usuário.</strong></h3>
 <ul>
 <li><strong>Você tem que estar logado no perfil do usuário para a bat conseguir pegar os mapeamentos do usuário.</strong>
-<li>No seu HD externo abra a pasta scripts e execute a bat <strong>3 - restore _arquivos_usuario.bat</strong>
+<li>Crie uma pasta temp no C:\.
+<li>Na pasta Temp execute a bat <strong>3 - restore _arquivos_usuario.bat</strong>
 <br>
-
 <img src="/img/restore.png" alt="Primeiro passo" witdh="400" height="300">
 <br>
 </ul>
