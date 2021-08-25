@@ -1,7 +1,7 @@
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 0 v.1.7b
+@title Projeto WorkPlace - Parte 0 v.1.9
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 0 v.1.7b
+@echo  Projeto WorkPlace - Parte 0 v.1.9
 @echo ------------------------------------------------------------------------------
 @color b
 @echo .########.####.##.....##.####.########
@@ -22,7 +22,7 @@
 @echo ------------------------------------
 
 
-:: Verifica se há scripts e instaladores antigos
+:: Verifica se hÃ¡ scripts e instaladores antigos
 @echo Atualizando scripts e instaladores
 @del "%letra%:\scripts" /s /q
 @del "%letra%:\Programas_Linde" /s /q
