@@ -1,7 +1,7 @@
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 2 v1.7b
+@title Projeto WorkPlace - Parte 2 v1.9
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 2 v1.7b
+@echo  Projeto WorkPlace - Parte 2 v1.9
 @echo ------------------------------------------------------------------------------
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
@@ -17,7 +17,7 @@
 @set /p letra= Letra do HD Externo:
 @echo.
 
-:: Dando permissão para escrita no C:\
+:: Dando permissÃ£o para escrita no C:\
 icacls "C:" /grant Everyone:M
 
 :: Altera TimeZone
