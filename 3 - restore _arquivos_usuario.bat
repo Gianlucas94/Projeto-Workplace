@@ -1,7 +1,7 @@
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 3 v1.7b
+@title Projeto WorkPlace - Parte 3 v1.9
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 3 v1.7b
+@echo  Projeto WorkPlace - Parte 3 v1.9
 @echo ------------------------------------------------------------------------------
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
@@ -14,7 +14,7 @@
 @echo ## ATENCAO - EXECUTAR COM O USUARIO LOGADO ##
 @cd \
 
-:: Questiona o nome do usuário e letra do HD
+:: Questiona o nome do usuÃ¡rio e letra do HD
 @set /p letra= Letra do HD Externo:
 @echo.
 @set /p nome= Nome do Usuario:
@@ -22,7 +22,10 @@
 @set /p user= Chave Linde:
 @echo.
 
-:: Retornando arquivos do usuário.
+:: Iniciando Caffeine para previnir que o Windows hiberne.
+@start c:\temp\caffeine64.exe -noicon
+
+:: Retornando arquivos do usuÃ¡rio.
 @echo -----------------------------------------
 @echo     Backup - Retornando arquivos
 @echo -----------------------------------------
@@ -50,9 +53,14 @@
 @reg import mapeamento.reg
 @reg import impressoras.reg
 @cd \
-:: Alterando Página Inicial
+
+:: Alterando PÃ¡gina Inicial do Internet Explorer
 @echo y|REG ADD "HKCU\Software\Microsoft\Internet Explorer\Main" /V "Start Page" /D "portalwm.sa.praxair.com" /F
 @echo ----------------------------
+
+:: Finalizando o Caffeine64
+@taskkill /f /IM caffeine64.exe
+
 @echo Finalizado.
 @pause
 @popd
