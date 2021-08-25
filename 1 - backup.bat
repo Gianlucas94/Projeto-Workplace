@@ -1,7 +1,7 @@
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 1 v.1.7b
+@title Projeto WorkPlace - Parte 1 v.1.9
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 1 v.1.7b
+@echo  Projeto WorkPlace - Parte 1 v.1.9
 @echo ------------------------------------------------------------------------------
 @color b
 @echo .########.####.##.....##.####.########
@@ -24,6 +24,9 @@
 @echo ------------------------------------
 @echo  Backup - Copiando arquivos
 @echo ------------------------------------
+
+:: Iniciando Caffeine64 para previnir que o Windows hiberne
+@start "%letra%:\Programas_Linde\caffeine64.exe -noicon"
 
 :: Copiando arquivos do usuario
 @robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" "Application Data"
@@ -48,11 +51,17 @@ attrib -h -s %letra%:\backup\%nome%\c_raiz
 @echo Exportando lista de softwares instalados.
 wmic /OUTPUT:%letra%:\backup\%nome%\softwares_instalados.txt product get name, version
 @cd \
+
+:: Finalizando o Caffeine64
+@taskkill /f /IM caffeine64.exe
+
 @echo Finalizado! Verifique as pastas de destino e origem.
 
+:: Abrindo pastas para comparação
 @start explorer C:\
 @start explorer "%letra%:\backup\%nome%\c_raiz"
 @start explorer C:\users\%user%
 @start explorer "%letra%:\backup\%nome%\user files"
+
 @pause
 @popd
