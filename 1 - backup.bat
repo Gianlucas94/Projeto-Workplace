@@ -26,7 +26,7 @@
 @echo ------------------------------------
 
 :: Iniciando Caffeine64 para previnir que o Windows hiberne
-@start "%letra%:\Programas_Linde\caffeine64.exe -noicon"
+@start %letra%:\Programas_Linde\caffeine64.exe -noicon
 
 :: Copiando arquivos do usuario
 @robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" "Application Data"
