@@ -1,7 +1,7 @@
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 2 v1.9
+@title Projeto WorkPlace - Parte 2 v1.9.1
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 2 v1.9
+@echo  Projeto WorkPlace - Parte 2 v1.9.1
 @echo ------------------------------------------------------------------------------
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
