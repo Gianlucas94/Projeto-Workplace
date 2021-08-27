@@ -33,7 +33,7 @@ icacls "C:" /grant Everyone:M
 
 @echo Instalando Chrome:
 @start /w c:\Temp\ChromeSetup.exe
-@taskkill /IM /f chrome.exe
+@taskkill /f /IM chrome.exe
 @echo.
 
 @echo Instalando Driver MaxxAudio:
