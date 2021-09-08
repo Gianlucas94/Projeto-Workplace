@@ -1,7 +1,8 @@
+@chcp 65001
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 3 v1.9.1
+@title Projeto WorkPlace - Parte 3 v2.0
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 3 v1.9.1
+@echo  Projeto WorkPlace - Parte 3 v2.0
 @echo ------------------------------------------------------------------------------
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
@@ -14,14 +15,58 @@
 @echo ## ATENCAO - EXECUTAR COM O USUARIO LOGADO ##
 @cd \
 
-:: Questiona o nome do usuÃ¡rio e letra do HD
-@set /p letra= Letra do HD Externo:
-@echo.
-@set /p nome= Nome do Usuario:
-@echo.
-@set /p user= Chave Linde:
-@echo.
+:disco
+    @echo.
+    @echo -------------------------------------------------------------
+    @echo Discos conectados ao equipamento:
+    @echo -------------------------------------------------------------
+    @WMIC LOGICALDISK where drivetype=3 get deviceid,description
+    @set /p letra= Letra do HD Externo: 
+    @echo.
+    @if exist %letra%:\ (
+        @if exist %letra%:\Scripts\ (
+        @goto nome
+        ) else (
+            @echo Não é o HD Externo.
+            @echo.
+            @timeout 3 /nobreak
+            goto disco
+        )
+    ) else ( 
+        @echo Esse disco não existe!
+        @echo.
+        @timeout 3 /nobreak
+        goto disco
+    )
+:nome
+    @set /p nome= Nome do Usuario: 
+    @echo.
+        @if exist %letra%:\backup\%nome% (
+            goto chave
+        ) else (
+            @echo Não há esse nome no backup! verifique o nome abaixo e tente novamente:
+            @echo.
+            @for /F "usebackq" %%i IN (`dir %letra%:\backup\ /b ^| sort`) DO @echo %%i
+            @echo.
+            @pause
+            goto nome
+        )
+:chave
+    @set /p user= Chave Linde: 
+    @echo.
+        @if exist c:\users\%chave%(
+            :restore
+        ) else (
+            @echo Perfil do usuário não encontrado! Verifique os perfis que estão na máquina abaixo e tente novamente:
+            @echo.
+            @for /F "usebackq" %%i IN (`dir c:\users /b ^| sort`) DO @echo %%i
+            @echo.
+            @pause
+            goto chave
+            ) 
+        )
 
+:restore
 :: Iniciando Caffeine para previnir que o Windows hiberne.
 @start c:\temp\caffeine64.exe -noicon
 
@@ -45,22 +90,26 @@
 @xcopy  %letra%:\backup\%nome%\Favoritos\Edge\bookmarks "C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\Default\" /e
 
 :: Importando registros.
-@ d:
+@ %letra%:
 @cd %letra%:\backup\%nome%\registro
 @echo --------------------------------------------------------------------------
 @echo  Impressoras e mapeamentos - Importando chaves do registro
-@echo ---------------------------------------------------------------------------
+@echo --------------------------------------------------------------------------
 @reg import mapeamento.reg
 @reg import impressoras.reg
 @cd \
 
 :: Alterando PÃ¡gina Inicial do Internet Explorer
+@echo Alterando Página inicial do internet Explorer
 @echo y|REG ADD "HKCU\Software\Microsoft\Internet Explorer\Main" /V "Start Page" /D "portalwm.sa.praxair.com" /F
-@echo ----------------------------
+
+@echo Fixando ícones na barra de tarefa
+c:\temp\syspin.exe "%programfiles%\internet explorer\iexplore.exe" 5386
+c:\temp\syspin.exe "C:\Program files (x86)\Microsoft Office\root\Office16\OUTLOOK.exe" 5386
 
 :: Finalizando o Caffeine64
 @taskkill /f /IM caffeine64.exe
-
+@echo -----------------------------------------------------------------------------------------------------------
 @echo Finalizado.
 @pause
 @popd

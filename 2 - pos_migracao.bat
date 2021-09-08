@@ -1,7 +1,8 @@
+@chcp 65001
 @pushd "%~dp0"
-@title Projeto WorkPlace - Parte 2 v1.9.1
+@title Projeto WorkPlace - Parte 2 v2.0
 @echo ------------------------------------------------------------------------------
-@echo  Projeto WorkPlace - Parte 2 v1.9.1
+@echo  Projeto WorkPlace - Parte 2 v2.0
 @echo ------------------------------------------------------------------------------
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
@@ -14,9 +15,41 @@
 @echo ## ATENCAO - EXECUTAR APOS A INSTALACAO DA IMAGEM COM LOGIN ADMIN ##
 @cd \
 
-@set /p letra= Letra do HD Externo:
-@echo.
+@net session >nul 2>&1
+@if %errorLevel% == 0 (
+    @echo Permissões administrativa confirmada.
+    @echo.
+    goto inicio
+) else (
+        @echo SEM PERMISSÃO! ABRA NOVAMENTE COMO ADMINISTRADOR.
+        @timeout 3 /nobreak
+        goto eof
+)
 
+:inicio
+@echo -------------------------------------------------------------
+@echo Discos conectados ao equipamento:
+@echo -------------------------------------------------------------
+@WMIC LOGICALDISK where drivetype=3 get deviceid,description
+@set /p letra= Letra do HD Externo: 
+@echo.
+@if exist %letra%:\ (
+    @if exist %letra%:\Scripts\ (
+        @goto posmigracao
+    ) else (
+        @echo Não é o HD Externo.
+        @timeout 3 /nobreak
+        goto eof
+        @start "" "%~f0"
+    )
+) else ( 
+    @echo Esse disco não existe!
+    @timeout 3 /nobreak
+    goto eof
+    @start "" "%~f0"
+)
+
+:posmigracao
 :: Dando permissÃ£o para escrita no C:\
 icacls "C:" /grant Everyone:M
 
@@ -27,7 +60,9 @@ icacls "C:" /grant Everyone:M
 @echo.
 
 :: Instalando e restaurando programas.
-@echo  ---Instalando softwares--
+echo ----------------------------------
+@echo       Instalando softwares
+echo ----------------------------------
 @robocopy %letra%:\Programas_Linde\ c:\Temp /r:1 /w:1 /e
 @echo.
 
@@ -43,7 +78,7 @@ icacls "C:" /grant Everyone:M
 @echo Instalando notes
 @start /w c:\Temp\Notes8.5.3\setuplocal.bat
 @echo.
-@echo ---------------------------
+@echo -------------------------------------
 
 
 @echo Finalizado.
