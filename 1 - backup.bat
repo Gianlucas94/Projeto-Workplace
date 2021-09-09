@@ -14,7 +14,7 @@
 @echo ....##....####....###....####....##...
 @echo. 
 @cd \
-@echo ## ATENCAO - EXECUTAR COM O USUARIO LOGADO NO DOMINIO PRAXAIR##
+@echo ## ATENÇÂO - EXECUTAR COM O USUÁRIO LOGADO NO DOMÍNIO PRAXAIR##
 @echo.
 
 :disco
@@ -28,20 +28,20 @@
         @if exist %letra%:\Scripts\ (
             @goto nome
         ) else (
-            @echo NÃ£o Ã© o HD Externo.
+            @echo Não é o HD Externo.
             @echo.
-            @timeout 3 /nobreak
+            @pause
             goto disco
         )
     ) else ( 
-        @echo Esse disco nÃ£o existe!
+        @echo Esse disco não existe!
         @echo.
-        @timeout 3 /nobreak
+        @pause
         goto disco
     )
 
 :nome
-    @set /p nome= Nome do Usuario (Sem espaÃ§os): 
+    @set /p nome= Nome do Usuário (Sem espaços): 
     @echo.
 
 :chave
@@ -50,7 +50,7 @@
     @if exist c:\users\%user%\ (
         goto backup
     ) else (
-            @echo Perfil do usuÃ¡rio nÃ£o encontrado! Verifique os perfis que estÃ£o na mÃ¡quina abaixo e tente novamente:
+            @echo Perfil do usuário não encontrado! Verifique os perfis que estão na máquina abaixo e tente novamente:
             @echo.
             @for /F "usebackq" %%i IN (`dir c:\users /b ^| sort`) DO @echo %%i
             @echo.
@@ -69,19 +69,23 @@
 @start %letra%:\Programas_Linde\caffeine64.exe -noicon
 
 :: Copiando arquivos do usuario
-@echo Backup perfil do usuÃ¡rio >> %letra%:\backup\%nome%\logs\log_backup.txt
+@cd %letra%:\backup
+@mkdir %nome%
+@cd %letra%:\backup\%nome%\
+@mkdir logs
+@echo Backup perfil do usuário > %letra%:\backup\%nome%\logs\log_backup.txt
 @choice.exe /c sn /m "Deseja fazer backup do OneDrive?"
-    @if errorlevel 1 do @robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" "Application Data" /log:%letra%:\backup\%nome%\logs\log_backup.txt
-    @if errorlevel 2 do @robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" onedrive "Application Data" /log:%letra%:\backup\%nome%\logs\log_backup.txt
+    @if errorlevel 1 robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /tee /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" "Application Data" /log+:%letra%:\backup\%nome%\logs\log_backup.txt
+    @if errorlevel 2 robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /tee /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" onedrive "Application Data" /log+:%letra%:\backup\%nome%\logs\log_backup.txt
 @echo Backup C:\ >> %letra%:\backup\%nome%\logs\log_backup.txt
-    @robocopy C:\ %letra%:\backup\%nome%\c_raiz /e /eta /r:1 /w:1 /XD "Program Files (x86)" Windows "Program Files" "Out-of-Box Drivers" Intel users Notes.old Notesold bginfo Perflogs ProgramData "Documents and Settings" $Recycle.Bin dell Config.msi Drivers  /log+:%letra%:\backup\%nome%\logs\log_backup.txt
+    @robocopy C:\ %letra%:\backup\%nome%\c_raiz /tee /e /eta /r:1 /w:1 /XD "Program Files (x86)" Windows "Program Files" "Out-of-Box Drivers" Intel users Notes.old Notesold bginfo Perflogs ProgramData "Documents and Settings" $Recycle.Bin dell Config.msi Drivers /log+:%letra%:\backup\%nome%\logs\log_backup.txt
 @echo Backup favoritos Chrome/Edge >> %letra%:\backup\%nome%\logs\log_backup.txt
     @echo d|xcopy "C:\users\%user%\AppData\Local\Google\Chrome\User Data\Default\Bookmarks" %letra%:\backup\%nome%\Favoritos\Chrome /i >> %letra%:\backup\%nome%\logs\log_backup.txt
     @echo d|xcopy "C:\users\%user%\AppData\Local\Microsoft\Edge\User Data\Default\Bookmarks" %letra%:\backup\%nome%\Favoritos\Edge /i >> %letra%:\backup\%nome%\logs\log_backup.txt
 @attrib -h -s %letra%:\backup\%nome%\c_raiz
 
 :: Criando pastas e exportando registros
-@ %letra%:
+@%letra%:
 @cd %letra%:\backup\%nome%
 @mkdir registro
 @mkdir logs
@@ -114,10 +118,10 @@ hostname >> %letra%:\backup\%nome%\logs\log_backup.txt
 ::hostname >> %letra%:\backup\%nome%\logs\log_backup.txt
 @cd "%letra%:\backup\%nome%\user files"
     cd >> %letra%:\backup\%nome%\logs\log_backup.txt
-%letra%:\backup\%nome%\Programas_Linde\du.exe "%letra%:\backup\%nome%\user files" >> %letra%:\backup\%nome%\logs\log_backup.txt
+%letra%:\backup\Programas_Linde\du.exe "%letra%:\backup\%nome%\user files" >> %letra%:\backup\%nome%\logs\log_backup.txt
 @cd %letra%:\backup\%nome%\c_raiz\Notes
     cd >> %letra%:\backup\%nome%\logs\log_backup.txt
-%letra%:\backup\%nome%\Programas_Linde\du.exe %letra%:\backup\%nome%\c_raiz\Notes >> %letra%:\backup\%nome%\logs\log_backup.txt
+%letra%:\backup\Programas_Linde\du.exe %letra%:\backup\%nome%\c_raiz\Notes >> %letra%:\backup\%nome%\logs\log_backup.txt
 
 
 :: Finalizando o Caffeine64

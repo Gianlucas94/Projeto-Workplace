@@ -37,13 +37,13 @@
     @if exist %letra%:\Scripts\ (
         @goto posmigracao
     ) else (
-        @echo N√£o √© o HD Externo.
+        @echo N„o È o HD Externo.
         @timeout 3 /nobreak
         goto eof
         @start "" "%~f0"
     )
 ) else ( 
-    @echo Esse disco n√£o existe!
+    @echo Esse disco n„o existe!
     @timeout 3 /nobreak
     goto eof
     @start "" "%~f0"

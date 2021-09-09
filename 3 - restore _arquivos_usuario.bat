@@ -27,13 +27,13 @@
         @if exist %letra%:\Scripts\ (
         @goto nome
         ) else (
-            @echo N√£o √© o HD Externo.
+            @echo N„o È o HD Externo.
             @echo.
             @timeout 3 /nobreak
             goto disco
         )
     ) else ( 
-        @echo Esse disco n√£o existe!
+        @echo Esse disco n„o existe!
         @echo.
         @timeout 3 /nobreak
         goto disco
@@ -44,7 +44,7 @@
         @if exist %letra%:\backup\%nome% (
             goto chave
         ) else (
-            @echo N√£o h√° esse nome no backup! verifique o nome abaixo e tente novamente:
+            @echo N„o h· esse nome no backup! verifique o nome abaixo e tente novamente:
             @echo.
             @for /F "usebackq" %%i IN (`dir %letra%:\backup\ /b ^| sort`) DO @echo %%i
             @echo.
@@ -54,23 +54,24 @@
 :chave
     @set /p user= Chave Linde: 
     @echo.
-        @if exist c:\users\%chave%(
-            :restore
+        @if exist c:\users\%user% (
+            goto restore
         ) else (
-            @echo Perfil do usu√°rio n√£o encontrado! Verifique os perfis que est√£o na m√°quina abaixo e tente novamente:
+            @echo Perfil do usu·rio n„o encontrado! Verifique os perfis que est„o na m·quina abaixo e tente novamente:
             @echo.
-            @for /F "usebackq" %%i IN (`dir c:\users /b ^| sort`) DO @echo %%i
+            @for /F "usebackq" %%i IN (`dir c:\users\ /b ^| sort`) DO @echo %%i
             @echo.
             @pause
             goto chave
             ) 
-        )
+)
+  
 
 :restore
 :: Iniciando Caffeine para previnir que o Windows hiberne.
 @start c:\temp\caffeine64.exe -noicon
 
-:: Retornando arquivos do usu√É¬°rio.
+:: Retornando arquivos do usu√°rio.
 @echo -----------------------------------------
 @echo     Backup - Retornando arquivos
 @echo -----------------------------------------
@@ -99,11 +100,11 @@
 @reg import impressoras.reg
 @cd \
 
-:: Alterando P√É¬°gina Inicial do Internet Explorer
-@echo Alterando P√°gina inicial do internet Explorer
+:: Alterando P√°gina Inicial do Internet Explorer
+@echo Alterando P·gina inicial do internet Explorer
 @echo y|REG ADD "HKCU\Software\Microsoft\Internet Explorer\Main" /V "Start Page" /D "portalwm.sa.praxair.com" /F
 
-@echo Fixando √≠cones na barra de tarefa
+@echo Fixando Ìcones na barra de tarefa
 c:\temp\syspin.exe "%programfiles%\internet explorer\iexplore.exe" 5386
 c:\temp\syspin.exe "C:\Program files (x86)\Microsoft Office\root\Office16\OUTLOOK.exe" 5386
 
