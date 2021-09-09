@@ -1,10 +1,11 @@
-@chcp 65001
 @pushd "%~dp0"
+@>nul chcp 65001
 @title Projeto WorkPlace - Parte 1 v.2.0
+@chgcolor 02
 @echo ------------------------------------------------------------------------------
 @echo  Projeto WorkPlace - Parte 1 v.2.0
 @echo ------------------------------------------------------------------------------
-@color b
+@chgcolor 04
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
 @echo ....##.....##..##.....##..##.....##...
@@ -13,30 +14,38 @@
 @echo ....##.....##....##.##....##.....##...
 @echo ....##....####....###....####....##...
 @echo. 
-@cd \
+@chgcolor 47
 @echo ## ATENÇÂO - EXECUTAR COM O USUÁRIO LOGADO NO DOMÍNIO PRAXAIR##
 @echo.
-
 :disco
+@chgcolor 02
     @echo -------------------------------------------------------------
     @echo Discos conectados ao equipamento:
     @echo -------------------------------------------------------------
+    @chgcolor 06
     @WMIC LOGICALDISK where drivetype=3 get deviceid,description
+    @chgcolor 07
     @set /p letra= Letra do HD Externo: 
     @echo.
     @if exist %letra%:\ (
         @if exist %letra%:\Scripts\ (
             @goto nome
         ) else (
+            @chgcolor 47
             @echo Não é o HD Externo.
+            @chgcolor 07
             @echo.
             @pause
+            @echo.
             goto disco
         )
     ) else ( 
+        @chgcolor 47
         @echo Esse disco não existe!
+        @chgcolor 07
         @echo.
         @pause
+        @echo.
         goto disco
     )
 
