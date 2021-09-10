@@ -1,9 +1,11 @@
-@chcp 65001
+@>nul chcp 65001
 @pushd "%~dp0"
+@chgcolor 02
 @title Projeto WorkPlace - Parte 3 v2.0
 @echo ------------------------------------------------------------------------------
 @echo  Projeto WorkPlace - Parte 3 v2.0
 @echo ------------------------------------------------------------------------------
+@chgcolor 04
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
 @echo ....##.....##..##.....##..##.....##...
@@ -11,15 +13,17 @@
 @echo ....##.....##...##...##...##.....##...
 @echo ....##.....##....##.##....##.....##...
 @echo ....##....####....###....####....##...
-@color b
-@echo ## ATENCAO - EXECUTAR COM O USUARIO LOGADO ##
+@chgcolor 47
+@echo ## ATEN√á√ÉO - EXECUTAR COM O USU√ÅRIO LOGADO ##
 @cd \
 
 :disco
+@chgcolor 02
     @echo.
-    @echo -------------------------------------------------------------
+@echo ------------------------------------------------------------------------------
     @echo Discos conectados ao equipamento:
-    @echo -------------------------------------------------------------
+@echo ------------------------------------------------------------------------------
+    @chgcolor 06
     @WMIC LOGICALDISK where drivetype=3 get deviceid,description
     @set /p letra= Letra do HD Externo: 
     @echo.
@@ -27,15 +31,19 @@
         @if exist %letra%:\Scripts\ (
         @goto nome
         ) else (
-            @echo N„o È o HD Externo.
+            @chgcolor 46
+            @echo N√£o √© o HD Externo.
+            @chgcolor 07
             @echo.
-            @timeout 3 /nobreak
+            @pause
             goto disco
         )
     ) else ( 
-        @echo Esse disco n„o existe!
+        @chgcolor 46
+        @echo Esse disco n√£o existe!
+        @chgcolor 07
         @echo.
-        @timeout 3 /nobreak
+        @pause
         goto disco
     )
 :nome
@@ -44,10 +52,13 @@
         @if exist %letra%:\backup\%nome% (
             goto chave
         ) else (
-            @echo N„o h· esse nome no backup! verifique o nome abaixo e tente novamente:
+            @chgcolor 46
+            @echo N√£o h√° esse nome no backup! verifique o nome abaixo e tente novamente:
+            @chgcolor 06
             @echo.
             @for /F "usebackq" %%i IN (`dir %letra%:\backup\ /b ^| sort`) DO @echo %%i
             @echo.
+            @chgcolor 07
             @pause
             goto nome
         )
@@ -57,10 +68,13 @@
         @if exist c:\users\%user% (
             goto restore
         ) else (
-            @echo Perfil do usu·rio n„o encontrado! Verifique os perfis que est„o na m·quina abaixo e tente novamente:
+            @chgcolor 46
+            @echo Perfil do usu√°rio n√£o encontrado! Verifique os perfis que est√£o na m√°quina abaixo e tente novamente:
+            @chgcolor 06
             @echo.
             @for /F "usebackq" %%i IN (`dir c:\users\ /b ^| sort`) DO @echo %%i
             @echo.
+            @chgcolor 07
             @pause
             goto chave
             ) 
@@ -72,20 +86,22 @@
 @start c:\temp\caffeine64.exe -noicon
 
 :: Retornando arquivos do usu√°rio.
-@echo -----------------------------------------
+@chgcolor 02
+@echo ------------------------------------------------------------------------------
 @echo     Backup - Retornando arquivos
-@echo -----------------------------------------
+@echo ------------------------------------------------------------------------------
+@chgcolor 07
 @robocopy "%letra%:\backup\%nome%\user files" "C:\users\%user%" /r:1 /w:1 /e /eta
 @ren c:\notes notesold
 @robocopy "%letra%:\backup\%nome%\c_raiz" C:\ /r:1 /w:1 /e /eta
 
 :: Retornando Favoritos
-@echo Restaurando favoritos do Chrome
+@echo Restaurando favoritos do Chrome.
 @start Chrome
 @taskkill /f /im chrome.exe
 @xcopy  %letra%:\backup\%nome%\Favoritos\Chrome\bookmarks "C:\users\%user%\AppData\Local\Google\Chrome\User Data\Default\" /e
 
-@echo Restaurando favoritos do Edge
+@echo Restaurando favoritos do Edge.
 @start msedge
 @taskkill /f /im msedge.exe
 @xcopy  %letra%:\backup\%nome%\Favoritos\Edge\bookmarks "C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\Default\" /e
@@ -93,18 +109,20 @@
 :: Importando registros.
 @ %letra%:
 @cd %letra%:\backup\%nome%\registro
-@echo --------------------------------------------------------------------------
+@chgcolor 02
+@echo ------------------------------------------------------------------------------
 @echo  Impressoras e mapeamentos - Importando chaves do registro
-@echo --------------------------------------------------------------------------
+@echo ------------------------------------------------------------------------------
+@chgcolor 07
 @reg import mapeamento.reg
 @reg import impressoras.reg
 @cd \
 
 :: Alterando P√°gina Inicial do Internet Explorer
-@echo Alterando P·gina inicial do internet Explorer
+@echo Alterando P√°gina inicial do internet Explorer.
 @echo y|REG ADD "HKCU\Software\Microsoft\Internet Explorer\Main" /V "Start Page" /D "portalwm.sa.praxair.com" /F
 
-@echo Fixando Ìcones na barra de tarefa
+@echo Fixando √≠cones na barra de tarefa.
 c:\temp\syspin.exe "%programfiles%\internet explorer\iexplore.exe" 5386
 c:\temp\syspin.exe "C:\Program files (x86)\Microsoft Office\root\Office16\OUTLOOK.exe" 5386
 

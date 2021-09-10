@@ -1,9 +1,11 @@
-@chcp 65001
+@>nul chcp 65001
 @pushd "%~dp0"
 @title Projeto WorkPlace - Parte 2 v2.0
+@chgcolor 02
 @echo ------------------------------------------------------------------------------
 @echo  Projeto WorkPlace - Parte 2 v2.0
 @echo ------------------------------------------------------------------------------
+@chgcolor 04
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
 @echo ....##.....##..##.....##..##.....##...
@@ -11,25 +13,34 @@
 @echo ....##.....##...##...##...##.....##...
 @echo ....##.....##....##.##....##.....##...
 @echo ....##....####....###....####....##...
-@color b
-@echo ## ATENCAO - EXECUTAR APOS A INSTALACAO DA IMAGEM COM LOGIN ADMIN ##
-@cd \
+@echo.
+@chgcolor 46
+@echo ## ATENCÃO - EXECUTAR APÓS A INSTALAÇÃO DA IMAGEM COM LOGIN ADMIN ##
+@echo.
 
 @net session >nul 2>&1
 @if %errorLevel% == 0 (
+    @chgcolor 27
     @echo Permissões administrativa confirmada.
     @echo.
     goto inicio
 ) else (
+        @chgcolor 46
         @echo SEM PERMISSÃO! ABRA NOVAMENTE COMO ADMINISTRADOR.
+        echo.
+        @chgcolor 07
         @timeout 3 /nobreak
+        
+        @echo.
         goto eof
 )
 
 :inicio
-@echo -------------------------------------------------------------
+@chgcolor 02
+@echo ------------------------------------------------------------------------------
 @echo Discos conectados ao equipamento:
-@echo -------------------------------------------------------------
+@echo ------------------------------------------------------------------------------
+@chgcolor 06
 @WMIC LOGICALDISK where drivetype=3 get deviceid,description
 @set /p letra= Letra do HD Externo: 
 @echo.
@@ -37,21 +48,25 @@
     @if exist %letra%:\Scripts\ (
         @goto posmigracao
     ) else (
-        @echo N�o � o HD Externo.
-        @timeout 3 /nobreak
-        goto eof
-        @start "" "%~f0"
+        @chgcolor 46
+        @echo Não é o HD Externo.
+        @chgcolor 07
+        @pause
+        @echo.
+        goto inicio
     )
 ) else ( 
-    @echo Esse disco n�o existe!
-    @timeout 3 /nobreak
-    goto eof
-    @start "" "%~f0"
+    @chgcolor 46
+    @echo Esse disco não existe!
+    @chgcolor 07
+    @pause
+    @echo.
+    goto inicio
 )
 
 :posmigracao
 :: Dando permissÃ£o para escrita no C:\
-icacls "C:" /grant Everyone:M
+@icacls "C:" /grant Everyone:M
 
 :: Altera TimeZone
 @echo Alterando Timezone...
@@ -60,9 +75,11 @@ icacls "C:" /grant Everyone:M
 @echo.
 
 :: Instalando e restaurando programas.
-echo ----------------------------------
+@chgcolor 02
+@echo ------------------------------------------------------------------------------
 @echo       Instalando softwares
-echo ----------------------------------
+@echo ------------------------------------------------------------------------------
+@chgcolor 07
 @robocopy %letra%:\Programas_Linde\ c:\Temp /r:1 /w:1 /e
 @echo.
 
@@ -75,10 +92,10 @@ echo ----------------------------------
 @start /w c:\Temp\MaxxAudio.exe /s
 @echo.
 
-@echo Instalando notes
+@echo Instalando Lotus Notes:
 @start /w c:\Temp\Notes8.5.3\setuplocal.bat
 @echo.
-@echo -------------------------------------
+@echo ------------------------------------------------------------------------------
 
 
 @echo Finalizado.

@@ -7,7 +7,7 @@ chgcolor 02
 @echo ------------------------------------------------------------------------------
 @echo  Projeto WorkPlace - Parte 0 v.2.0
 @echo ------------------------------------------------------------------------------
-chgcolor 0C
+chgcolor 04
 @echo .########.####.##.....##.####.########
 @echo ....##.....##..##.....##..##.....##...
 @echo ....##.....##..##.....##..##.....##...
@@ -16,8 +16,9 @@ chgcolor 0C
 @echo ....##.....##....##.##....##.....##...
 @echo ....##....####....###....####....##...
 @echo. 
-chgcolor 47
-@echo ## ATENCAO - EXECUTAR LOGADO NO DOMINIO PRAXAIR ##
+chgcolor 46
+@echo ## ATENCAO - EXECUTAR LOGADO NO DOMÍNIO PRAXAIR ##
+@echo.
 @echo ## ATENCAO - BAT PARA PREPARAR HD EXTERNO PARA USO DAS BATS DO PROJETO WORKPLACE ##
 @echo.
 chgcolor 02
@@ -35,7 +36,7 @@ chgcolor 07
 @if exist %letra%:\ (
     goto preparar
 ) else (
-    chgcolor 47
+    @chgcolor 46
     @echo Esse disco não existe!
     chgcolor 7
     @echo.

@@ -14,14 +14,14 @@
 @echo ....##.....##....##.##....##.....##...
 @echo ....##....####....###....####....##...
 @echo. 
-@chgcolor 47
-@echo ## ATENÇÂO - EXECUTAR COM O USUÁRIO LOGADO NO DOMÍNIO PRAXAIR##
+@chgcolor 46
+@echo ## ATENÃ‡ÃƒO - EXECUTAR COM O USUÃRIO LOGADO NO DOMÃNIO PRAXAIR##
 @echo.
 :disco
 @chgcolor 02
-    @echo -------------------------------------------------------------
+@echo ------------------------------------------------------------------------------
     @echo Discos conectados ao equipamento:
-    @echo -------------------------------------------------------------
+@echo ------------------------------------------------------------------------------
     @chgcolor 06
     @WMIC LOGICALDISK where drivetype=3 get deviceid,description
     @chgcolor 07
@@ -31,8 +31,8 @@
         @if exist %letra%:\Scripts\ (
             @goto nome
         ) else (
-            @chgcolor 47
-            @echo Não é o HD Externo.
+            @chgcolor 46
+            @echo NÃ£o Ã© o HD Externo.
             @chgcolor 07
             @echo.
             @pause
@@ -40,8 +40,8 @@
             goto disco
         )
     ) else ( 
-        @chgcolor 47
-        @echo Esse disco não existe!
+        @chgcolor 46
+        @echo Esse disco nÃ£o existe!
         @chgcolor 07
         @echo.
         @pause
@@ -50,7 +50,7 @@
     )
 
 :nome
-    @set /p nome= Nome do Usuário (Sem espaços): 
+    @set /p nome= Nome do UsuÃ¡rio (Sem espaÃ§os): 
     @echo.
 
 :chave
@@ -59,8 +59,10 @@
     @if exist c:\users\%user%\ (
         goto backup
     ) else (
-            @echo Perfil do usuário não encontrado! Verifique os perfis que estão na máquina abaixo e tente novamente:
+            @chgcolor 46
+            @echo Perfil do usuÃ¡rio nÃ£o encontrado! Verifique os perfis que estÃ£o na mÃ¡quina abaixo e tente novamente:
             @echo.
+            @chgcolor 07
             @for /F "usebackq" %%i IN (`dir c:\users /b ^| sort`) DO @echo %%i
             @echo.
             @pause
@@ -69,10 +71,12 @@
 
 :backup
 @echo.
-@echo ------------------------------------
+@chgcolor 02
+@echo ------------------------------------------------------------------------------
 @echo  Backup - Copiando arquivos
-@echo ------------------------------------
+@echo ------------------------------------------------------------------------------
 @echo.
+@chgcolor 07
 
 :: Iniciando Caffeine64 para previnir que o Windows hiberne
 @start %letra%:\Programas_Linde\caffeine64.exe -noicon
@@ -82,7 +86,7 @@
 @mkdir %nome%
 @cd %letra%:\backup\%nome%\
 @mkdir logs
-@echo Backup perfil do usuário > %letra%:\backup\%nome%\logs\log_backup.txt
+@echo Backup perfil do usuÃ¡rio > %letra%:\backup\%nome%\logs\log_backup.txt
 @choice.exe /c sn /m "Deseja fazer backup do OneDrive?"
     @if errorlevel 1 robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /tee /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" "Application Data" /log+:%letra%:\backup\%nome%\logs\log_backup.txt
     @if errorlevel 2 robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /tee /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" onedrive "Application Data" /log+:%letra%:\backup\%nome%\logs\log_backup.txt
@@ -99,9 +103,11 @@
 @mkdir registro
 @mkdir logs
 @cd %letra%:\backup\%nome%\registro
-@echo --------------------------------------------------------------------------
+@chgcolor 02
+@echo ---------------------------------------------------------------------------
 @echo        Impressoras e mapeamentos - Exportando chaves do registro
 @echo ---------------------------------------------------------------------------
+@chgcolor 07
 @echo Registros exportados >> %letra%:\backup\%nome%\logs\log_backup.txt
 @reg export "HKEY_CURRENT_USER\Network" mapeamento.reg /y >> %letra%:\backup\%nome%\logs\log_backup.txt
 @reg export "HKEY_CURRENT_USER\Printers" impressoras.reg /y >> %letra%:\backup\%nome%\logs\log_backup.txt
