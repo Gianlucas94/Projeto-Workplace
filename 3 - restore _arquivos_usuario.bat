@@ -13,9 +13,9 @@
 @echo ....##.....##...##...##...##.....##...
 @echo ....##.....##....##.##....##.....##...
 @echo ....##....####....###....####....##...
-@chgcolor 47
+@echo.
+@chgcolor 46
 @echo ## ATENÇÃO - EXECUTAR COM O USUÁRIO LOGADO ##
-@cd \
 
 :disco
 @chgcolor 02
@@ -25,6 +25,7 @@
 @echo ------------------------------------------------------------------------------
     @chgcolor 06
     @WMIC LOGICALDISK where drivetype=3 get deviceid,description
+    @chgcolor 07
     @set /p letra= Letra do HD Externo: 
     @echo.
     @if exist %letra%:\ (

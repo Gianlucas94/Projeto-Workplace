@@ -22,9 +22,9 @@ chgcolor 46
 @echo ## ATENCAO - BAT PARA PREPARAR HD EXTERNO PARA USO DAS BATS DO PROJETO WORKPLACE ##
 @echo.
 chgcolor 02
-@echo -------------------------------------------------------------
+@echo ------------------------------------------------------------------------------
 @echo Discos conectados ao equipamento:
-@echo -------------------------------------------------------------
+@echo ------------------------------------------------------------------------------
 chgcolor 07
 :HD
 chgcolor 06
@@ -47,10 +47,10 @@ chgcolor 07
 
 :preparar
 chgcolor 02
-@echo ------------------------------------
+@echo ------------------------------------------------------------------------------
 @echo  Backup - Copiando instaladores
-@echo ------------------------------------
-:: Verifica se hÃ¡ scripts e instaladores antigos
+@echo ------------------------------------------------------------------------------
+:: Verifica se há scripts e instaladores antigos
 chgcolor 06
 @echo Atualizando scripts e instaladores
 chgcolor 07

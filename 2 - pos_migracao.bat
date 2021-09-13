@@ -96,7 +96,7 @@
 @start /w c:\Temp\Notes8.5.3\setuplocal.bat
 @echo.
 @echo ------------------------------------------------------------------------------
-
+exit /b
 
 @echo Finalizado.
 @pause
