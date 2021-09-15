@@ -105,12 +105,14 @@
 @cd %letra%:\backup\%nome%
 @mkdir registro
 @mkdir logs
-@cd %letra%:\backup\%nome%\registro
+@cd %letra%:\scripts
+
 @chgcolor 02
 @echo ---------------------------------------------------------------------------
 @echo        Impressoras e mapeamentos - Exportando chaves do registro
 @echo ---------------------------------------------------------------------------
 @chgcolor 07
+@cd %letra%:\backup\%nome%\registro
 @echo Registros exportados >> %letra%:\backup\%nome%\logs\log_backup.txt
 @reg export "HKEY_CURRENT_USER\Network" mapeamento.reg /y >> %letra%:\backup\%nome%\logs\log_backup.txt
 @reg export "HKEY_CURRENT_USER\Printers" impressoras.reg /y >> %letra%:\backup\%nome%\logs\log_backup.txt
@@ -129,28 +131,20 @@ hostname >> %letra%:\backup\%nome%\logs\log_backup.txt
 @echo. >> %letra%:\backup\%nome%\logs\log_backup.txt
 @cd c:\users\%user%\ >> %letra%:\backup\%nome%\logs\log_backup.txt
     cd >> %letra%:\backup\%nome%\logs\log_backup.txt
-%letra%:\Programas_Linde\du.exe c:\users\%user%\ >> %letra%:\backup\%nome%\logs\log_backup.txt
+%letra%:\Programas_Linde\du.exe -nobanner c:\users\%user%\ >> %letra%:\backup\%nome%\logs\log_backup.txt
 @cd c:\Notes >> %letra%:\backup\%nome%\logs\log_backup.txt
     cd >> %letra%:\backup\%nome%\logs\log_backup.txt
-%letra%:\Programas_Linde\du.exe c:\users\notes\ >> %letra%:\backup\%nome%\logs\log_backup.txt
+%letra%:\Programas_Linde\du.exe -nobanner c:\users\notes\ >> %letra%:\backup\%nome%\logs\log_backup.txt
 
-::hostname >> %letra%:\backup\%nome%\logs\log_backup.txt
-@cd "%letra%:\backup\%nome%\user files"
-    cd >> %letra%:\backup\%nome%\logs\log_backup.txt
-%letra%:\Programas_Linde\du.exe "%letra%:\backup\%nome%\user files" >> %letra%:\backup\%nome%\logs\log_backup.txt
+hostname >> %letra%:\backup\%nome%\logs\log_backup.txt
+@cd >> "%letra%:\backup\%nome%\user files"
+    @cd >> %letra%:\backup\%nome%\logs\log_backup.txt
+@%letra%:\Programas_Linde\du.exe -nobanner "%letra%:\backup\%nome%\user files" >> %letra%:\backup\%nome%\logs\log_backup.txt
 @cd %letra%:\backup\%nome%\c_raiz\Notes
-    cd >> %letra%:\backup\%nome%\logs\log_backup.txt
-%letra%:\Programas_Linde\du.exe %letra%:\backup\%nome%\c_raiz\Notes >> %letra%:\backup\%nome%\logs\log_backup.txt
+    @cd >> %letra%:\backup\%nome%\logs\log_backup.txt
+%letra%:\Programas_Linde\du.exe -nobanner %letra%:\backup\%nome%\c_raiz\Notes >> %letra%:\backup\%nome%\logs\log_backup.txt
 
 
-:: Finalizando o Caffeine64
-@taskkill /f /IM caffeine64.exe
-
-@echo Finalizado! Verifique logs e as pastas de destino e origem.
-
-:: Abrindo logs
-@explorer %letra%:\backup\%nome%\logs
-
+@echo Finalizado.
 @pause
 @popd
-

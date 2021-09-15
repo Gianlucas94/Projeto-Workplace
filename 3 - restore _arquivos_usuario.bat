@@ -108,13 +108,13 @@
 @xcopy  %letra%:\backup\%nome%\Favoritos\Edge\bookmarks "C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\Default\" /e
 
 :: Importando registros.
-@ %letra%:
-@cd %letra%:\backup\%nome%\registro
 @chgcolor 02
 @echo ------------------------------------------------------------------------------
 @echo  Impressoras e mapeamentos - Importando chaves do registro
 @echo ------------------------------------------------------------------------------
 @chgcolor 07
+@ %letra%:
+@cd %letra%:\backup\%nome%\registro
 @reg import mapeamento.reg
 @reg import impressoras.reg
 @cd \
@@ -130,6 +130,6 @@ c:\temp\syspin.exe "C:\Program files (x86)\Microsoft Office\root\Office16\OUTLOO
 :: Finalizando o Caffeine64
 @taskkill /f /IM caffeine64.exe
 @echo -----------------------------------------------------------------------------------------------------------
-@echo Finalizado.
+@echo Finalizado
 @pause
-@popd
+@popd   
