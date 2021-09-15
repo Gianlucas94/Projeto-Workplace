@@ -88,8 +88,8 @@
 @mkdir logs
 
 @choice.exe /c sn /m "Deseja fazer backup do OneDrive?"
-@if errorlevel 1 robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /tee /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" "Application Data" /log+:%letra%:\backup\%nome%\logs\log_backup.txt
-@if errorlevel 2 robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /tee /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" onedrive "Application Data" /log+:%letra%:\backup\%nome%\logs\log_backup.txt
+@if errorlevel 1 robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /tee /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" "Application Data"
+@if errorlevel 2 robocopy C:\users\%user% "%letra%:\backup\%nome%\user files" /tee /r:1 /w:1 /e /eta /xd C:\users\%user%\AppData "C:\users\%user%\Local Settings" onedrive "Application Data"
 @robocopy C:\ %letra%:\backup\%nome%\c_raiz /tee /e /eta /r:1 /w:1 /XD "Program Files (x86)" Windows "Program Files" "Out-of-Box Drivers" Intel users Notes.old Notesold bginfo Perflogs ProgramData "Documents and Settings" $Recycle.Bin dell Config.msi Drivers
 @echo d|xcopy "C:\users\%user%\AppData\Local\Google\Chrome\User Data\Default\Bookmarks" %letra%:\backup\%nome%\Favoritos\Chrome /i
 @echo d|xcopy "C:\users\%user%\AppData\Local\Microsoft\Edge\User Data\Default\Bookmarks" %letra%:\backup\%nome%\Favoritos\Edge /i
@@ -107,7 +107,6 @@
 @echo ---------------------------------------------------------------------------
 @chgcolor 07
 @cd %letra%:\backup\%nome%\registro
-@echo Registros exportados >> %letra%:\backup\%nome%\logs\log_backup.txt
 @reg export "HKEY_CURRENT_USER\Network" mapeamento.reg /y
 @reg export "HKEY_CURRENT_USER\Printers" impressoras.reg /y
 
