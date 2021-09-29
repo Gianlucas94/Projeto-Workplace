@@ -66,7 +66,9 @@
 
 :posmigracao
 :: Dando permissÃ£o para escrita no C:\
-@icacls "C:" /grant Everyone:F
+@icacls "C:/" /grant Everyone:F
+@icacls "C:/" /grant Users:F
+
 
 :: Altera TimeZone
 @echo Alterando Timezone...
@@ -97,3 +99,7 @@
 @echo.
 @echo ------------------------------------------------------------------------------
 exit /b
+
+@echo Finalizado.
+@pause
+@popd
