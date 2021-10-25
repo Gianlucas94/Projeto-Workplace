@@ -47,7 +47,7 @@
     @echo.
     @if exist %letra%:\ (
         @if exist %letra%:\Scripts\ (
-        @goto nome
+        @goto HostName
         ) else (
             @chgcolor 46
             @echo Não é o HD Externo.
@@ -65,7 +65,7 @@
         goto disco
     )
 :HostName
-@set /p nome= Hostanme:
+@set /p nome= Hostname:
 @echo.
 @echo.
 @echo ------------------------------------
