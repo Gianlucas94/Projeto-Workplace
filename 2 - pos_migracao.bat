@@ -94,11 +94,14 @@
 @start /w c:\Temp\MaxxAudio.exe /s
 @echo.
 
+@echo Instalando Sensor CrowdStrike
+@start /w c:\Temp\WindowsSensor_6.16\Install.bat
+@echo.
+
 @echo Instalando Lotus Notes:
 @start /w c:\Temp\Notes8.5.3\setuplocal.bat
 @echo.
 @echo ------------------------------------------------------------------------------
-exit /b
 
 @echo Finalizado.
 @pause
