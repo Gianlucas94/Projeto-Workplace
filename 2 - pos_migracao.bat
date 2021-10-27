@@ -94,12 +94,12 @@
 @start /w c:\Temp\MaxxAudio.exe /s
 @echo.
 
-@echo Instalando Sensor CrowdStrike
-@start /w c:\Temp\WindowsSensor_6.16\Install.bat
+@echo Instalando Sensor CrowdStrike:
+@start /w C:\temp\WindowsSensor_6.16\WindowsSensor.exe /install /passive /norestart CID=0A5B1B6C97734FF7801837C1D1070336-23 PACURL=http://pac.linde.grp/crowdstrike.pac
 @echo.
 
 @echo Instalando Lotus Notes:
-@start /w c:\Temp\Notes8.5.3\setuplocal.bat
+@start /b /w c:\Temp\Notes8.5.3\setuplocal.bat
 @echo.
 @echo ------------------------------------------------------------------------------
 
