@@ -101,6 +101,12 @@
 @echo Instalando Lotus Notes:
 @start /b /w c:\Temp\Notes8.5.3\setuplocal.bat
 @echo.
+
+@echo Fix para instalação de impressoras.
+@reg import c:\temp\Printer_Install.reg
+@echo.
+
+
 @echo ------------------------------------------------------------------------------
 
 @echo Finalizado.
