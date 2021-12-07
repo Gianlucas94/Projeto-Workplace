@@ -34,36 +34,15 @@
         @echo.
         goto eof
 )
-
 :inicio
-@chgcolor 02
-@echo ------------------------------------------------------------------------------
-@echo Discos conectados ao equipamento:
-@echo ------------------------------------------------------------------------------
-@chgcolor 06
-@WMIC LOGICALDISK where drivetype=3 get deviceid,description
-@set /p letra= Letra do HD Externo: 
-@echo.
-@if exist %letra%:\ (
-    @if exist %letra%:\Scripts\ (
-        @goto posmigracao
-    ) else (
-        @chgcolor 46
-        @echo Não é o HD Externo.
-        @chgcolor 07
-        @pause
-        @echo.
-        goto inicio
-    )
-) else ( 
-    @chgcolor 46
-    @echo Esse disco não existe!
-    @chgcolor 07
-    @pause
-    @echo.
-    goto inicio
-)
-
+@chgcolor 07
 @echo Fix para instalação de impressoras.
-@reg import %letra%:\programas_linde\Printer_Install.reg
 @echo.
+@reg import %~dp0\regs\Printer_Install.reg
+@echo.
+@chgcolor 02
+@echo Pronto, agora pode efetuar a instalação da impressora.
+@echo.
+@chgcolor 07
+@start explorer \\brariops1
+@pause
