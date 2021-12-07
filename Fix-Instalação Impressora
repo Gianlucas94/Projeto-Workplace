@@ -1,0 +1,69 @@
+@>nul chcp 65001
+@pushd "%~dp0"
+@title Projeto WorkPlace - Fix Instalação Impressora
+@chgcolor 02
+@echo ------------------------------------------------------------------------------
+@echo  Projeto WorkPlace - Fix Instalação Impressora
+@echo ------------------------------------------------------------------------------
+@chgcolor 04
+@echo .########.####.##.....##.####.########
+@echo ....##.....##..##.....##..##.....##...
+@echo ....##.....##..##.....##..##.....##...
+@echo ....##.....##..##.....##..##.....##...
+@echo ....##.....##...##...##...##.....##...
+@echo ....##.....##....##.##....##.....##...
+@echo ....##....####....###....####....##...
+@echo.
+@chgcolor 46
+@echo ## ATENCÃO - EXECUTAR APÓS A INSTALAÇÃO DA IMAGEM COM LOGIN ADMIN ##
+@echo.
+
+@net session >nul 2>&1
+@if %errorLevel% == 0 (
+    @chgcolor 27
+    @echo Permissões administrativa confirmada.
+    @echo.
+    goto inicio
+) else (
+        @chgcolor 46
+        @echo SEM PERMISSÃO! ABRA NOVAMENTE COMO ADMINISTRADOR.
+        echo.
+        @chgcolor 07
+        @timeout 3 /nobreak
+        
+        @echo.
+        goto eof
+)
+
+:inicio
+@chgcolor 02
+@echo ------------------------------------------------------------------------------
+@echo Discos conectados ao equipamento:
+@echo ------------------------------------------------------------------------------
+@chgcolor 06
+@WMIC LOGICALDISK where drivetype=3 get deviceid,description
+@set /p letra= Letra do HD Externo: 
+@echo.
+@if exist %letra%:\ (
+    @if exist %letra%:\Scripts\ (
+        @goto posmigracao
+    ) else (
+        @chgcolor 46
+        @echo Não é o HD Externo.
+        @chgcolor 07
+        @pause
+        @echo.
+        goto inicio
+    )
+) else ( 
+    @chgcolor 46
+    @echo Esse disco não existe!
+    @chgcolor 07
+    @pause
+    @echo.
+    goto inicio
+)
+
+@echo Fix para instalação de impressoras.
+@reg import %letra%:\programas_linde\Printer_Install.reg
+@echo.
