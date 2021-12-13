@@ -77,6 +77,11 @@
 @echo.
 @echo.
 
+:: Fix para instalação de impressora
+@echo Fix para instalação de impressoras.
+@reg import c:\temp\Printer_Install.reg
+@echo.
+
 :: Instalando e restaurando programas.
 @chgcolor 02
 @echo ------------------------------------------------------------------------------
@@ -97,10 +102,6 @@
 
 @echo Instalando Sensor CrowdStrike:
 @start /w C:\temp\WindowsSensor_6.16\WindowsSensor.exe /install /passive /norestart CID=0A5B1B6C97734FF7801837C1D1070336-23 PACURL=http://pac.linde.grp/crowdstrike.pac
-@echo.
-
-@echo Fix para instalação de impressoras.
-@reg import c:\temp\Printer_Install.reg
 @echo.
 
 @echo Instalando Lotus Notes:
