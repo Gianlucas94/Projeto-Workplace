@@ -1,5 +1,6 @@
 @>nul chcp 65001
 @pushd "%~dp0"
+@set PATH=%PATH%;"%~dp0lib"
 @title Projeto WorkPlace - Parte 2 v2.0
 @chgcolor 02
 @echo ------------------------------------------------------------------------------
@@ -98,12 +99,12 @@
 @start /w C:\temp\WindowsSensor_6.16\WindowsSensor.exe /install /passive /norestart CID=0A5B1B6C97734FF7801837C1D1070336-23 PACURL=http://pac.linde.grp/crowdstrike.pac
 @echo.
 
-@echo Instalando Lotus Notes:
-@start /b /w c:\Temp\Notes8.5.3\setuplocal.bat
-@echo.
-
 @echo Fix para instalação de impressoras.
 @reg import c:\temp\Printer_Install.reg
+@echo.
+
+@echo Instalando Lotus Notes:
+@start /b /w c:\Temp\Notes8.5.3\setuplocal.bat
 @echo.
 
 

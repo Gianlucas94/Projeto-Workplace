@@ -1,5 +1,6 @@
 @>nul chcp 65001
 @pushd "%~dp0"
+@set PATH=%PATH%;"%~dp0lib"
 @title Projeto WorkPlace - Fix Instalação Impressora
 @chgcolor 02
 @echo ------------------------------------------------------------------------------

@@ -1,0 +1,14 @@
+Program Files (x86)\
+Windows\
+Program Files\ 
+Temp\
+Out-of-Box Drivers\ 
+Intel\
+users\
+Notes.old\
+Notesold\
+bginfo\
+PerfLogs\
+ProgramData\
+.dmp
+.log

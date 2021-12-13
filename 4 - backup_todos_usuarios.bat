@@ -1,5 +1,6 @@
 @>nul chcp 65001
 @pushd "%~dp0"
+@set PATH=%PATH%;"%~dp0lib"
 @chgcolor 02
 @title Projeto WorkPlace - Parte 3 v2.0
 @echo ------------------------------------------------------------------------------
