@@ -79,7 +79,7 @@
 
 :: Fix para instalação de impressora
 @echo Fix para instalação de impressoras.
-@reg import c:\temp\Printer_Install.reg
+@reg import %~dp0\fixes\regs\Printer_Install.reg
 @echo.
 
 :: Instalando e restaurando programas.
