@@ -1,3 +1,4 @@
+SETLOCAL ENABLEDELAYEDEXPANSION
 @>nul chcp 65001
 @pushd "%~dp0"
 @set PATH=%PATH%;"%~dp0lib"
@@ -18,6 +19,10 @@
 @chgcolor 46
 @echo ## ATENCÃO - EXECUTAR APÓS A INSTALAÇÃO DA IMAGEM COM LOGIN ADMIN ##
 @echo.
+
+:: Pegar modelo do equipamento e setar em variaveis
+@for /F "skip=1 tokens=*" %%f in ('wmic CSPRODUCT get NAME ^| findstr /V /R "^$"') do @set modelo=%%f
+@for /f "tokens=1,2 delims= " %%a in ("%modelo%") do @set tipo=%%a&set modelo=%%b
 
 @net session >nul 2>&1
 @if %errorLevel% == 0 (
@@ -79,9 +84,39 @@
 
 :: Fix para instalação de impressora
 @echo Fix para instalação de impressoras.
-@reg import %~dp0\fixes\regs\Printer_Install.reg
+@reg import %~dp0fixes\regs\Printer_Install.reg
 @echo.
 
+:drivers
+:: Atualizando Drivers e Bios
+@chgcolor 06
+@set /p driver= "Deseja instalar os Drivers (S | n) ? "
+@if /i "%driver%"=="s" (
+    @echo.
+    @echo Instalando Drivers para o modelo %tipo% %modelo%
+    cd %~dp0drivers\%tipo%\%modelo%
+    for /r %%f in (*.exe) do (start /wait %%f /s)
+
+    @set /p bios= "Deseja atualizar a BIOS (S | n) ? "
+    @if /i "%bios%"=="s" (
+        cd %~dp0drivers\%tipo%\%modelo%\bios
+        for /r %%f in (*.exe) do (@start /wait %%f /s)
+        cd %~dp0
+    )
+) 
+        pause        
+) else (
+        @echo Opção inválida! 
+        @pause
+        @echo.
+        goto drivers
+    )
+ @if /i "%driver%"=="n" (
+     @echo.
+     @goto softwares
+ )
+
+:softwares
 :: Instalando e restaurando programas.
 @chgcolor 02
 @echo ------------------------------------------------------------------------------
