@@ -1,6 +1,5 @@
 <h1 align="center">Projeto WorkPlace</h1>
 <p align="center">
-<img src="/img/tivit-logo.png" alt="TIVIT" witdh="200" height="100" style="display: block; margin: 0 auto"/>
 </p>
 
 <h2 align="center"><strong>Características:</strong></h2>
